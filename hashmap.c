@@ -42,6 +42,7 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
 
 
+
 }
 
 void enlarge(HashMap * map) {
@@ -68,7 +69,11 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
-
+    if(map->size == 0) return NULL;
+    map->current = 0;
+    while(map->buckets[map->current] == NULL && map->current < map->capacity) {
+        map->current++;
+    }
     return NULL;
 }
 
