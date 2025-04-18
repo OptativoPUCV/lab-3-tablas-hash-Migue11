@@ -41,25 +41,22 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     long index = hash(key, map->capacity); // Aplicamos la funcion hash a la key para que asi obtengamos el indice en el cual colocaremos el Pair	
-
-    return NULL;
 }
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     long aux_capacity = map->capacity; // Guardamos la capacidad actual en una varible auxiliar para no perderla
     Pair ** aux_capacity = map->buckets;
-    return NULL;
 }
 
 
 HashMap * createMap(long capacity) {
-    HashMap * mapa = (HashMap *)malloc(sizeof(HashMap));
-    mapa->buckets = (Pair **)calloc(capacity, sizeof(Pair *)); // Aqui todas las casillas se inicializan en NULL
-    mapa->size = 0; // Inicializamos el tamaño a 0
-    mapa->capacity = capacity; // Inicializamos el tamaño completo del array a capacity
-    mapa->current = -1; // Incializamos el current en -1 para que asi cuando lo reccoramos, tome el primer elemento correctamente
-    return mapa;
+    HashMap * map = (HashMap *)malloc(sizeof(HashMap));
+    map->buckets = (Pair **)calloc(capacity, sizeof(Pair *)); // Aqui todas las casillas se inicializan en NULL
+    map->size = 0; // Inicializamos el tamaño a 0
+    map->capacity = capacity; // Inicializamos el tamaño completo del array a capacity
+    map->current = -1; // Incializamos el current en -1 para que asi cuando lo reccoramos, tome el primer elemento correctamente
+    return map;
 }
 
 void eraseMap(HashMap * map,  char * key){    
