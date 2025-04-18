@@ -53,13 +53,12 @@ HashMap * createMap(long capacity) {
     HashMap * mapa = (HashMap *)malloc(sizeof(HashMap));
     mapa->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
     if(mapa->buckets == NULL){
-        printf("Error al crear el mapa");
-        printf("\n");
+        printf("Error al crear el mapa\n");
         return NULL;
     }
     mapa->size = 0;
-    mapa->capacity = 0;
-    mapa->current = 0;
+    mapa->capacity = capacity;
+    mapa->current = -1;
     for(int i = 0; i < capacity; i = i + 1){
         mapa->buckets[i] = NULL;
     }
