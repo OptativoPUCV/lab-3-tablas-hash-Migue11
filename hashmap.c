@@ -53,7 +53,7 @@ HashMap * createMap(long capacity) {
     HashMap * mapa = (HashMap *)malloc(sizeof(HashMap));
     mapa->buckets = (Pair **)malloc(sizeof(Pair *) * capacity);
     mapa->size = 0;
-    mapa->capacity = capacity;
+    mapa->capacity = 0;
     mapa->current = 0;
     for(int i = 0; i < capacity; i = i + 1){
         mapa->buckets[i] = NULL;
