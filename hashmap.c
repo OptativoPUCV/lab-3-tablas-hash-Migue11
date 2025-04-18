@@ -45,8 +45,11 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-    //long aux_capacity = map->capacity; // Guardamos la capacidad actual en una varible auxiliar para no perderla
-    //Pair ** aux_capacity = map->buckets;
+    long aux->capacity = map->capacity;
+    Pair ** aux->buckets = map->buckets;
+    map->capacity = map->capacity*2;
+    map->buckets = (Pair ** )calloc(map->capacity, sizeof(Pair *));
+
 }
 
 
