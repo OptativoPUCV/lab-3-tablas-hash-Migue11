@@ -50,7 +50,11 @@ void enlarge(HashMap * map) {
     map->capacity = map->capacity*2;
     map->buckets = (Pair ** )calloc(map->capacity, sizeof(Pair *));
     map->size = 0;
-    
+    for (long i = 0; i < aux->capacity; i++) {
+        if (aux->buckets[i] != NULL) {
+            insertMap(map, aux->buckets[i]->key, aux->buckets[i]->value);
+        }
+    }
 }
 
 
