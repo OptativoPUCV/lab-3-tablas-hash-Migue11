@@ -42,14 +42,14 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
     long index = hash(key, map->capacity); // Aplicamos la funcion hash a la key para que asi obtengamos el indice en el cual colocaremos el Pair	
 
-
+    return NULL;
 }
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
     long aux_capacity = map->capacity; // Guardamos la capacidad actual en una varible auxiliar para no perderla
     Pair ** aux_capacity = map->buckets;
-
+    return NULL;
 }
 
 
