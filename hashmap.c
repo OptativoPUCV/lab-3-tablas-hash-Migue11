@@ -51,14 +51,10 @@ void enlarge(HashMap * map) {
 
 HashMap * createMap(long capacity) {
     HashMap * mapa = (HashMap *)malloc(sizeof(HashMap));
-    mapa->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
-    if(mapa->buckets == NULL){
-        printf("Error al crear el mapa\n");
-        return NULL;
-    }
-    mapa->size = 0;
-    mapa->capacity = capacity;
-    mapa->current = -1;
+    mapa->buckets = (Pair **)calloc(capacity, sizeof(Pair *)); // Aqui todas las casillas se inicializan en NULL
+    mapa->size = 0; // Inicializamos el tamaño a 0
+    mapa->capacity = capacity; // Inicializamos el tamaño completo del array a capacity
+    mapa->current = -1; // Incializamos el current en -1 para que asi cuando lo reccoramos, tome el primer elemento correctamente
     return mapa;
 }
 
