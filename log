@@ -100,3 +100,27 @@ Fri, Apr 18, 2025  3:27:52 PM:
  tests:  1|5
 total_score: 10/70
 8058926
+Fri, Apr 18, 2025  3:36:14 PM: 
+ hashmap.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:
+hashmap.c: In function 'insertMap':
+hashmap.c:43:10: warning: unused variable 'index' [-Wunused-variable]
+   43 |     long index = hash(key, map->capacity); // Aplicamos la funcion hash a la key para que asi obtengamos el indice en el cual colocaremos el Pair
+      |          ^~~~~
+hashmap.c: In function 'enlarge':
+hashmap.c:51:13: error: conflicting types for 'aux_capacity'; have 'Pair **'
+   51 |     Pair ** aux_capacity = map->buckets;
+      |             ^~~~~~~~~~~~
+hashmap.c:50:10: note: previous definition of 'aux_capacity' with type 'long int'
+   50 |     long aux_capacity = map->capacity; // Guardamos la capacidad actual en una varible auxiliar para no perderla
+      |          ^~~~~~~~~~~~
+hashmap.c:51:13: warning: unused variable 'aux_capacity' [-Wunused-variable]
+   51 |     Pair ** aux_capacity = map->buckets;
+      |             ^~~~~~~~~~~~
+test.c: At top level:
+test.c:8:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    8 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+7a6c3e2
