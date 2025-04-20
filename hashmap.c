@@ -50,10 +50,6 @@ void insertMap(HashMap * map, char * key, void * value){
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-    long aux->capacity = map->capacity;
-    Pair ** aux->buckets = map->buckets;
-    map->capacity = map->capacity*2;
-    map->buckets = (Pair ** )calloc(map->capacity, sizeof(Pair *));
 }
 
 
@@ -75,7 +71,16 @@ Pair * searchMap(HashMap * map,  char * key) {
     return NULL;
 }
 
-Pair * firstMap(HashMap * map) {
+Pair * firstMap(HashMap * map){
+    if(map->size == 0){
+        return NULL; // Retornamos NULL si es que la tabla hash no tiene elementos
+    }
+    for(int i=0; i<map->capacity; i++){
+        if(map->buckets[i] != NULL){
+            map->current = i;
+            return map->buckets[i];
+        }
+    }
     return NULL;
 }
 
