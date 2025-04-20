@@ -78,9 +78,8 @@ Pair * firstMap(HashMap * map){
     }
     if(map->current == map->capacity){
         return NULL; // No hay elementos en la tabla hash
-    }else{
-        return map->buckets[map->current];
     }
+    return map->buckets[map->current];
 
 }
 Pair * nextMap(HashMap * map) {
