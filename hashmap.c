@@ -47,14 +47,13 @@ void insertMap(HashMap * map, char * key, void * value){
         map->size++;
     }
 }
-    
+
 void enlarge(HashMap * map) {
-    //enlarge_called = 1; //no borrar (testing purposes)
-    //long aux->capacity = map->capacity;
-    //Pair ** aux->buckets = map->buckets;
-    //map->capacity = map->capacity*2;
-    //map->buckets = (Pair ** )calloc(map->capacity, sizeof(Pair *));
-    //map->size = 0;
+    enlarge_called = 1; //no borrar (testing purposes)
+    long aux->capacity = map->capacity;
+    Pair ** aux->buckets = map->buckets;
+    map->capacity = map->capacity*2;
+    map->buckets = (Pair ** )calloc(map->capacity, sizeof(Pair *));
 }
 
 

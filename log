@@ -263,3 +263,22 @@ Fri, Apr 18, 2025  4:09:16 PM:
  tests:  2|5
 total_score: 20/70
 5f1b7d6
+Sun, Apr 20, 2025 10:11:31 AM: 
+ hashmap.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+Compilation failed
+In file included from test.c:4:
+hashmap.c: In function 'enlarge':
+hashmap.c:53:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before '->' token
+   53 |     long aux->capacity = map->capacity;
+      |             ^~
+hashmap.c:53:13: error: expected expression before '->' token
+hashmap.c:54:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before '->' token
+   54 |     Pair ** aux->buckets = map->buckets;
+      |                ^~
+hashmap.c:54:16: error: expected expression before '->' token
+test.c: At top level:
+test.c:8:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    8 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+f38c480
