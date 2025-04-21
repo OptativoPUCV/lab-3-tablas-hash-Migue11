@@ -40,12 +40,16 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value){
-    long index = hash(key, map->capacity); // Aplicamos la funcion hash a la key para que asi obtengamos el indice en el cual colocaremos el Pair
-    Pair * new = createPair(key, value);
-    if(map->buckets[index] == NULL){
-        map->buckets[index] = new;
-        map->size++;
+    Pair * pair = createPair(key, value);
+    int index = hash(key, map->capacity);
+    while(map->buckets[index] != NULL){
+        if(map->buckets[index]->key != NULL && is_equal(map->buckets[index]->key, key)){
+            map->buckets[index]->value = value;
+        }
+        index = (index + 1) % map->capacity;
     }
+    map->buckets[index] = pair;
+    map->size++;
 }
 
 void enlarge(HashMap * map) {
@@ -70,12 +74,19 @@ void eraseMap(HashMap * map,  char * key){
         free(pair->key);
         map->size--;
     }
+    return NULL;
 
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-
-
+    int index = hash(key, map->capacity);
+    while(map->buckets[index] != NULL){
+        if(map->buckets[index]->key != NULL && is_equal(map->buckets[index]->key, key)){
+            map->current = index;
+            return map->buckets[index];
+        }
+    }
+    index = (index + 1) % map->capacity;
     return NULL;
 }
 
