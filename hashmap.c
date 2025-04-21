@@ -63,7 +63,12 @@ HashMap * createMap(long capacity) {
     return map;
 }
 
-void eraseMap(HashMap * map,  char * key){    
+void eraseMap(HashMap * map,  char * key){ 
+    Pair * pair = searchMap(map, key);
+    if(pair != NULL){
+        map->size--;
+        free(pair->key); // Liberamos la key
+    }
 
 }
 
