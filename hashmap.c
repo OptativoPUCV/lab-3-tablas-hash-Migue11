@@ -50,6 +50,7 @@ void insertMap(HashMap * map, char * key, void * value){
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
+
 }
 
 
@@ -63,6 +64,7 @@ HashMap * createMap(long capacity) {
 }
 
 void eraseMap(HashMap * map,  char * key){    
+
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
@@ -83,6 +85,9 @@ Pair * firstMap(HashMap * map){
 
 }
 Pair * nextMap(HashMap * map) {
-
+    map->current++;
+    while(map->current < map->capacity && map->buckets[map->current] == NULL){
+        map->current++;
+    }
     return NULL;
 }
